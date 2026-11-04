@@ -1,0 +1,7 @@
+google-adk
+py-trello
+python-dotenv
+
+pytest
+pytest-mock
+ruff

@@ -1,0 +1,32 @@
+# Variáveis de ambiente e credenciais
+.env
+.env.*
+
+# Mantém o arquivo de exemplo versionável
+!.env.example
+
+# Ambiente virtual
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testes e cobertura
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ferramentas
+.ruff_cache/
+
+# IDE e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Google ADK
+.adk/
