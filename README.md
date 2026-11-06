@@ -51,6 +51,22 @@ PersonalPilot supports the following task management operations:
   - Completed
 -
 
+### Task Deletion
+
+- Delete tasks from the configured Trello board.
+- Identify tasks using their unique card IDs.
+- Require explicit user confirmation before deletion.
+- Return the deleted task's details after successful removal.
+
+### Additional Capabilities
+
+- Interpret task management requests expressed in natural language.
+- Handle ambiguous task references by requesting clarification.
+- Normalize status inputs, including capitalization, whitespace, and accented characters.
+- Validate input data before executing operations.
+- Handle Trello API errors and return appropriate messages to the agent.
+- Support optional task fields, preserving existing information when no modification is requested.
+
 ## 4. Demonstration
 
 This section demonstrates PersonalPilot performing a task creation operation through its conversational interface and the Trello API.
@@ -189,6 +205,7 @@ PersonalPilot/
 │       ├── __init__.py
 │       ├── tasks.py
 │       └── trello.py
+├── images/ # Screenshots used in the documentation
 ├── tests/
 │   ├── test_add_tasks.py
 │   ├── test_list_tasks.py
@@ -246,8 +263,8 @@ Before installing PersonalPilot, make sure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/PersonalPilot.git
-cd PersonalPilot
+git clone https://github.com/GuilhermeGGasse/Personal_Pilot.git
+cd Personal_Pilot
 ```
 
 ### 2. Create a Virtual Environment
@@ -272,8 +289,33 @@ source .venv/bin/activate
 
 ### 3. Install Dependencies
 
+Upgrade pip and install the project dependencies:
+
 ```bash
 python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+### 4. Configure Environment Variables
+
+Create a `.env` file in the project root directory, using `.env.example` as a template.
+
+Add your API credentials and Trello configuration:
+
+```env
+GOOGLE_API_KEY=your_google_api_key
+TRELLO_API_KEY=your_trello_api_key
+TRELLO_API_SECRET=your_trello_api_secret
+TRELLO_TOKEN=your_trello_token
+TRELLO_BOARD_NAME=your_trello_board_name
+TRELLO_LIST_TODO=A Fazer
+TRELLO_LIST_IN_PROGRESS=Em andamento
+TRELLO_LIST_DONE=Concluído
+```
+
+Replace the placeholder values with your actual credentials and Trello board name.
+
+---
 
 ## 9. Running the Agent
 
@@ -297,7 +339,7 @@ Open the displayed URL in your browser.
 
 In the ADK Web interface, select `agenttaskmanager` as the agent directory.
 
-The `personal_pilot` agent will be loaded and ready to receive instructions.
+The PersonalPilot agent will be loaded and ready to receive instructions.
 
 ### 4. Start a Conversation
 
